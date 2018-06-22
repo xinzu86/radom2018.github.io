@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[结合gitHub+Hexo搭建博客]]></title>
+    <url>%2F2018%2F06%2F22%2F%E7%BB%93%E5%90%88gitHub%2BHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[正在整理中。。。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F06%2F20%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New hexo" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS3模拟微信拆红包]]></title>
+    <url>%2F2016%2F07%2F04%2FCSS3%E6%A8%A1%E6%8B%9F%E5%BE%AE%E4%BF%A1%E6%8B%86%E7%BA%A2%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[近期项目做活动页面，其中要实现一个类似微信拆红包效果，试着用CSS3实现了红包以及拆红包的动画。 HTML1234567891011121314151617181920212223242526272829&lt;!--微信红包--&gt;&lt;div style="position:fixed;left:0;top:0;right:0;bottom:0;z-index:3;background-color:rgba(0,0,0,.5);"&gt;&lt;article class="redPacketsBox"&gt; &lt;a href="javascript:;" class="closeRp"&gt;×&lt;/a&gt; &lt;!--拆开前--&gt; &lt;div class="rpBefore flex item-center" id="js-rpBefore"&gt; &lt;div&gt; &lt;p&gt;直播间主持人&lt;br /&gt;给你发了一个红包&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;!--拆开后--&gt; &lt;div class="rpAfter" id="js-rpAfter"&gt; &lt;div class="hd flex item-center"&gt; &lt;div class=""&gt; &lt;p&gt;恭喜你获得优惠券&lt;br /&gt;App专享&lt;/p&gt; &lt;p class="hd-yuan"&gt;5元&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class="ft"&gt; &lt;button type="button" name="" class="button"&gt;去App使用&lt;/button&gt; &lt;p style="margin:5px 0 10px;"&gt;请使用微信授权登录&lt;/p&gt; &lt;button type="button" name="" class="button"&gt;继续观看鉴定会&lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;div&gt; &lt;button type="button" name="" class="bombBox" id="js-bomb"&gt;&lt;span class="bombBox-inner"&gt;拆&lt;/span&gt;&lt;/button&gt; &lt;/div&gt;&lt;/article&gt;&lt;/div&gt; CSS3123456789101112131415161718192021222324252627282930313233.redPacketsBox&#123;position:fixed;left:50%;top:50%;z-index:9;margin:-200px 0 0 -150px;width:300px;min-height:400px;background-color:#EC514C;border-radius:5px; -webkit-animation: redPackets .8s ease-out; animation: redPackets .8s ease-out;&#125;@-webkit-keyframes redPackets &#123; 0% &#123;-webkit-transform: scale(.2);&#125; 50% &#123;-webkit-transform: scale(1);&#125; 80% &#123;-webkit-transform: scale(.8);&#125; 100% &#123;-webkit-transform: scale(1);&#125;&#125;.redPacketsBox .closeRp&#123;position:absolute;left:5px;top:5px;width:18px;height:18px;line-height:18px;text-align:center;color:#D24235;font-size: 22px;text-decoration: none;font-weight: bold;&#125;.redPacketsBox .rpBefore&#123;min-height:240px;padding:20px;background-color:#FA6059;border-bottom: 1px solid #E5443F;color:#f7df95;font-size:22px;text-align:center;line-height:1.5; box-shadow: 0px 1px 0px -1px rgba(0,0,0,0.1); border-radius:10px 10px 50% 50% / 10px 10px 15% 15%;&#125;.redPacketsBox .bombBox&#123;position:absolute;left:50%;top:230px;margin-left:-45px;background-color:#F7DF95;width:90px;height:90px;padding:5px; border:none;outline:none; border-radius:100%; box-shadow: 0 1px 5px 1px rgba(0,0,0,.1);&#125;.redPacketsBox .bombBox-inner&#123;display:block;width:78px;height:78px;line-height:78px;font-size:36px;font-weight:bold;text-align:center;border:1px solid #E9BF6B;border-radius:100%;&#125;.redPacketsBox .rpAfter&#123;display:none;text-align:center;padding:20px;&#125;.redPacketsBox .rpAfter .hd&#123;min-height:260px;line-height:1.5;color:#f7df95;font-size:22px;&#125;.redPacketsBox .rpAfter .ft .button&#123;width: 100%;box-sizing:border-box;height: 34px;font-size:16px;&#125;.redPacketsBox .rpAfter .hd-yuan&#123;font-size:50px;margin-top:20px;&#125;.redPacketsBox .rotateY&#123; -webkit-animation:bomb .6s infinite alternate; animation:bomb .6s infinite alternate;&#125;@-webkit-keyframes bomb &#123; from &#123; -webkit-transform: rotateY(180deg); &#125; to &#123; -webkit-transform: rotateY(360deg); &#125;&#125; Javascript 点击事件1234567891011var _bomb = document.getElementById('js-bomb'), _rpBefore = document.getElementById('js-rpBefore'), _rpAfter = document.getElementById('js-rpAfter');_bomb.onclick = function() &#123; _bomb.className = 'bombBox rotateY'; setTimeout(function() &#123; _bomb.style.display = 'none'; _rpBefore.style.display = 'none'; _rpAfter.style.display = 'block'; &#125;, 2000)&#125; 附上项目实现截图，以及线上demo]]></content>
+      <categories>
+        <category>CSS3</category>
+      </categories>
+      <tags>
+        <tag>拆红包</tag>
+        <tag>CSS3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[flex自适应截取]]></title>
+    <url>%2F2016%2F07%2F04%2Fflex%E8%87%AA%E9%80%82%E5%BA%94%E6%88%AA%E5%8F%96%2F</url>
+    <content type="text"><![CDATA[随着移动智能设备的越发普及，智能设备的软硬件也是炉火纯青，我们在做H5页面的时候，通常都会首选display:flex弹性模盒来布局，float基本抛之脑后。flex给我们带来好处的同时，也带来不少坑。最近在做项目时碰到页面效果如下（两个文字都要根据设备不同宽度做自就适应截取）： CSS1234567891011121314151617/* 弹性伸缩布局 */.flex &#123; display: -webkit-box; display: -webkit-flex; display: flex;&#125;.flex-1 &#123; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1;&#125;/* 截取省略 */.ellipsis &#123; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;&#125; HTML 场景一1234&lt;div class="flex"&gt; &lt;h2 class="ellipsis"&gt;主标题主标题主标题主标题主标题主标题主标题&lt;/h2&gt; &lt;p class="ellipsis"&gt;辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息&lt;/p&gt;&lt;/div&gt; HTML 场景二1234567&lt;div class="flex"&gt; &lt;img src="//image.huigoumai.com/20150327478d60ea86997338f3e45fa79a5bd4ad?imageView2/2/w/486/format/webp" width="100" height="100" alt="" /&gt; &lt;div class="flex flex-1"&gt; &lt;h2 class="ellipsis"&gt;主标题主标题主标题主标题主标题主标题主标题&lt;/h2&gt; &lt;p class="ellipsis"&gt;辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息&lt;/p&gt; &lt;/div&gt;&lt;/div&gt; 效果如下： 场景二的代码效果居然没能实现自适应截取。经过一翻折腾，最终试出来了，需在父元素使用了flex-1的情况下，重复加上截取样式，得知flex-1样式会引响到子元素ellipsis。 1234567&lt;div class="flex"&gt; &lt;img src="//image.huigoumai.com/20150327478d60ea86997338f3e45fa79a5bd4ad?imageView2/2/w/486/format/webp" width="100" height="100" alt="" /&gt; &lt;div class="flex flex-1 ellipsis"&gt; &lt;h2 class="ellipsis"&gt;主标题主标题主标题主标题主标题主标题主标题&lt;/h2&gt; &lt;p class="ellipsis"&gt;辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息辅助信息&lt;/p&gt; &lt;/div&gt;&lt;/div&gt; 附上项目实现截图，以及线上demo]]></content>
+      <categories>
+        <category>bug</category>
+      </categories>
+      <tags>
+        <tag>flex</tag>
+        <tag>ellipsis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何快速定位BUG]]></title>
+    <url>%2F2016%2F07%2F04%2F%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%92%E5%AE%9A%E4%BD%8DBUG%2F</url>
+    <content type="text"><![CDATA[web发展至今我们碰到的 CSS BUG 的问题都会从容应对，网上搜索一下也会有一些解决方案。但时常我们也会碰到复杂的 CSS BUG 问题，所谓“复杂”实质是指触发的条件很复杂，而“BUG” 也并非指一定是浏览器的 BUG 。对于此类问题，我们首先要解决的是如何定位到问题，只有快速的定位到问题，才能更好的解决问题。对于快速定位，个人的经验处理一般如下（基本可以定位到我在工作中遇到的 90% 以上的复杂 CSS BUG 问题）： 1、检查页面的标签是否闭合、嵌套错误不要小看这条，也许折腾了你两天都没有解决的 CSS BUG 问题，却仅仅源于这里。毕竟页面的模板一般都是由开发来嵌套的，而他们很容易犯此类问题。 快捷提示：可以用 IDE 打开文件检查，一般没有闭合的标签，会黄色背景高亮。 2、样式排除法有些复杂的页面也许加载了 N 个外链 CSS 文件，那么逐个删除 CSS 文件，找到 BUG 触发的具体 CSS 文件，缩小锁定的范围。 对于刚才锁定的问题 CSS 样式文件，逐行删除具体的样式定义，定位到具体的触发样式定义，甚至是具体的触发样式属性。 3、模块确认法有时候我们也可以从页面的 HTML 元素出发。删除页面中不同的 HTML 模块，寻找到触发问题的 HTML 模块。 4、检查是否清除浮动其实有不少的 CSS BUG 问题是因为没有清除浮动造成的。养成良好的清除浮动的习惯是必要的，推荐使用 无额外 HTML 标签的清除浮动的方法（尽量避免使用 overflow:hidden;zoom:1 的类似方法来清除浮动，会有太多的限制性）。 5、检查 IE 下是否触发 haslayout很多的 IE 下复杂 CSS BUG 都与 IE 特有的 haslayout 息息相关。熟悉和理解 haslayout 对于处理复杂的 CSS BUG 会事半功倍。推荐阅读 old9 翻译的 《On having layout》（如果无法翻越穿越伟大的 GFW，可阅读 蓝色上的转帖 ） 快捷提示：如果触发了 haslayout，IE 的调试工具 IE Developer Toolbar 中的属性中将会显示 haslayout 值为 -1。 6、边框背景调试法故名思议就是给元素设置显眼的边框或者背景（一般黑色或红色），进行调试。此方法是最常用的调试 CSS BUG 的方法之一，对于复杂 BUG 依旧适用。经济实惠还环保^^ 最后想给大家强调一点的是，养成良好的书写习惯，减少额外标签，尽量语义，符合标准，其实可以为我们减少很多额外的复杂 CSS BUG，更多的时候其实是我们自己给自己制造了麻烦。希望大家远离 BUG ，生活越来越美好。]]></content>
+      <categories>
+        <category>bug</category>
+      </categories>
+      <tags>
+        <tag>定位</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[webApp页面构建基础知识]]></title>
+    <url>%2F2016%2F07%2F03%2FwebApp%E9%A1%B5%E9%9D%A2%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[1、关闭iOS键盘首字母自动大写IOS的机子，默认英文输入法状态下，首字母是自动大写的，有时候挺烦人的。 我们写页面的时候有没有办法把这个自动大写关闭呢？autocapitalize的属性可以实现： 在iOS中，默认情况下键盘是开启首字母大写的功能的，如果业务不想出现首字母大写，可以这样：1&lt;input type="text" autocapitalize="off" /&gt; 2、关闭iOS输入自动修正和英文输入默认自动首字母大写那样，IOS还做了一个功能，默认输入法会开启自动修正输入内容，这样的话，用户经常要操作两次。所以这个功能有方便和不方便之处，如果有些业务不需要这个功能，可以通过前端代码关闭。 如果不需要的话，可以这样：1&lt;input type="text" autocorrect="off" /&gt; 3、禁止文本缩放当移动设备横竖屏切换时，文本的大小会重新计算，进行相应的缩放，当我们不需要这种情况时，可以选择禁止：123html &#123; -webkit-text-size-adjust: 100%;&#125; 需要注意的是，PC端的该属性已经被移除，该属性在移动端要生效，必须设置 `meta viewport”。 4、移动端如何清除输入框内阴影在iOS上，输入框默认有内部阴影，但无法使用 box-shadow 来清除，如果不需要阴影，可以这样关闭：12345input,textarea &#123; border: 0; /* 方法1 */ -webkit-appearance: none; /* 方法2 */&#125; 5、邮箱地址识别在 Android （iOS不会）上，浏览器会自动识别看起来像邮箱地址的字符串，不论有你没有加上邮箱链接，当你在这个字符串上长按，会弹出发邮件的提示。 关闭邮箱地址识别：1&lt;meta name="format-detection" content="email=no" /&gt; 开启邮件发送：1&lt;a mailto:dooyoe@gmail.com"&gt;dooyoe@gmail.com&lt;/a&gt; 6、移动端手机号码识别在 iOS Safari （其他浏览器和Android均不会）上会对那些看起来像是电话号码的数字处理为电话链接，比如： 7位数字，形如：1234567 带括号及加号的数字，形如：(+86)123456789 双连接线的数字，形如：00-00-00111 11位数字，形如：13800138000 可能还有其他类型的数字也会被识别，但在具体的业务场景中，有些时候这是不必须的，所以你可以关闭电话自动识别，然后在需要拨号的地方，开启电话呼出和短信功能。 （1）关闭电话识别：1&lt;meta name="format-detection" content="telephone=no" /&gt; （2）开启电话功能：1&lt;a href="tel:123456"&gt;123456&lt;/a&gt; （3）开启短信功能：1&lt;a href="sms:123456"&gt;123456&lt;/a&gt; 7、快速回弹滚动我们先来看看回弹滚动在手机浏览器发展的历史： 早期的时候，移动端的浏览器都不支持非body元素的滚动条，所以一般都借助 iScroll; Android 3.0/iOS解决了非body元素的滚动问题，但滚动条不可见，同时iOS上只能通过2个手指进行滚动； Android 4.0解决了滚动条不可见及增加了快速回弹滚动效果，不过随后这个特性又被移除； iOS从5.0开始解决了滚动条不可见及增加了快速回弹滚动效果 在iOS上如果你想让一个元素拥有像 Native 的滚动效果，你可以这样做：1234.demo &#123; overflow: auto; /* auto | scroll */ -webkit-overflow-scrolling: touch;&#125; PS：iScroll用过之后感觉不是很好，有一些诡异的bug，这里推荐另外一个Swiper，这个插件集成了滑屏滚动的强大功能（支持3D），而且还有回弹滚动的内置滚动条，官方地址： http://www.swiper.com.cn/ 8、移动端禁止选中内容如果你不想用户可以选中页面中的内容，那么你可以在css中禁掉：123div &#123; -webkit-user-select: none;&#125; 就这么简单，但是目前只支持webkit内核的浏览器。 9、移动端取消touch高亮效果在做移动端页面时，会发现所有a标签在触发点击时或者所有设置了伪类 :active 的元素，默认都会在激活状态时，显示高亮框，如果不想要这个高亮，那么你可以通过css以下方法来禁止：123.demo &#123; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);&#125; 这个设置，在大部分机子上都是起效果的。但是，移动端三星自带浏览器，点击页面任意a标签时，设置-webkit-tap-highlight-color:rgba(0,0,0,0)还是会有阴影底色，这应该是浏览器强制加上去的，通过代码设置也无法覆盖。 有一种妥协的方法是把页面非真实跳转链接的a标签换成其它标签，可以解决这个问题。 10、如何禁止保存或拷贝图像做移动端H5页面时，经常踩到不少坑，感觉也是时候整理一下移动端开发笔记了，遇到问题能够快速响应，节省开发时间。今天先mark一下在移动端如何禁止保存或拷贝图像： 通常当你在手机或者pad上长按图像 img ，会弹出选项 存储图像 或者 拷贝图像，如果你不想让用户这么操作，那么你可以通过以下方法来禁止：123img &#123; -webkit-touch-callout: none;&#125; PS：需要注意的是，该方法只在 iOS 上有效。]]></content>
+      <categories>
+        <category>webApp</category>
+      </categories>
+      <tags>
+        <tag>webApp</tag>
+      </tags>
+  </entry>
+</search>
